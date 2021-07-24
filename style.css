@@ -317,25 +317,25 @@ footer hr{
 }
 
 /*------ PRODUCT PAGE ------*/
-.row-2{
+#products .row-2{
 	justify-content: space-between;
 	margin: 100px auto 50px;
 }
 
-select{
+#products select{
 	border: 1px solid #ff523b;
 	padding: 5px;
 }
 
-select:focus{
+#products select:focus{
 	outline: none;
 }
 
-.page-btn{
+#products .page-btn{
 	margin: 0 auto 80px;
 }
 
-.page-btn span{
+#products .page-btn span{
 	display: inline-block;
 	border: 1px solid #ff523b;
 	margin-left: 10px;
@@ -347,10 +347,72 @@ select:focus{
 	transition: 0.5s;
 }
 
-.page-btn span:hover{
+#products .page-btn span:hover{
 	background: #ff523b;
 	color: #fff;
 	border-radius: 5px;
+}
+
+/*------ PRODUCT PAGE ------*/
+#product-detail{
+	margin-top: 80px;
+}
+
+#product-detail .col-2 img{
+	padding: 0;
+}
+
+#product-detail .col-2{
+	padding: 20px;
+}
+
+#product-img{
+	cursor: crosshair;
+}
+
+#product-detail h4{
+	margin: 20px 0;
+	font-weight: 22px;
+	font-weight: bold;
+}
+
+#product-detail select{
+	display: block;
+	padding: 10px;
+	margin-top: 20px;
+	border: 1px solid #ff523b;
+}
+
+#product-detail select:focus{
+	outline: none;
+}
+
+#product-detail input{
+	width: 50px;
+	height: 40px;
+	padding-left: 10px;
+	font-size: 20px;
+	margin-right: 10px;
+	border: 1px solid #ff523b;
+}
+
+#product-detail input:focus{
+	outline: none;
+}
+
+#product-detail .material-icons{
+	color: #ff523b;
+	margin-left: 10px;
+}
+
+#product-detail .small-img-row{
+	display: flex;
+	justify-content: space-between;
+}
+
+#product-detail .small-img-col{
+	flex-basis: 24%;
+	cursor: pointer;
 }
 
 /*------ RESPONSIVE SETTINGS ------*/
@@ -361,5 +423,18 @@ select:focus{
 
 	.col-2, .col-3, .col-4, .col-5{
 		flex-basis: 100%;
+	}
+
+	#product-detail .row{
+		text-align: left;
+	}
+
+	#product-detail .col-2{
+		padding: 20px;
+	}
+
+	#product-detail h1{
+		font-size: 26px;
+		line-height: 32px;
 	}
 }
