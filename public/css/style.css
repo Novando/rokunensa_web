@@ -1,7 +1,7 @@
 /*------ IMPORT FONT ------*/
 @font-face{
 	font-family: PlusJakarta;
-	src: url('fonts/PlusJakartaText-Regular.otf');
+	src: url('../fonts/PlusJakartaText-Regular.otf');
 }
 
 /*------ HTML SETTINGS ------*/

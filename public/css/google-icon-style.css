@@ -1,0 +1,24 @@
+.material-icons.colored{
+	color: #555;
+}
+
+.material-icons.rating{
+	color: #ff523b;
+}
+
+.material-icons.sizebig{
+	font-size: 48px;
+}
+
+.material-icons.menu{
+	width: 28px;
+	margin-left: 40px;
+	display: none;
+}
+
+@media only screen and (max-width: 800px){
+	.material-icons.menu{
+		display: block;
+		cursor: pointer;
+	}
+}

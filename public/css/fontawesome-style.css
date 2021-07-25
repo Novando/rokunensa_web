@@ -1,0 +1,19 @@
+.fa:hover{
+	color: #fff;
+}
+
+.fa-facebook:hover{
+	background: #4267b2;
+}
+
+.fa-instagram:hover{
+	background: #8a3ab9;
+}
+
+.fa-twitter:hover{
+	background: #1da1f2;
+}
+
+.fa-youtube-play:hover{
+	background: #c4302b;
+}
