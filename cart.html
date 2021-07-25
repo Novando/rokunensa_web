@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale1.0">
+	<title>Rokunensa | All Product</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="google-icon-style.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+	<!--------------- HEADER SECTION --------------->
+	<section class="container">
+		<div class="navbar">
+			<div class="logo">
+				<img src="img/rokunensa_b.png">
+			</div>
+			<nav>
+				<ul id="MenuItems">
+					<li><a href="">Home</a></li>
+					<li><a href="">Product</a></li>
+					<li><a href="">About</a></li>
+					<li><a href="">Contact</a></li>
+					<li><a href="">Account</a></li>
+				</ul>
+			</nav>
+			<span class="material-icons colored">&#xe8cc;</span>
+			<span class="material-icons colored menu" onclick="menuToggle()">&#xe5d2;</span>
+		</div>
+	</section>
+
+	<!--------------- CART ITEMS SECTION --------------->
+	<section id="cart" class="small-container">
+		<table>
+			<thead>
+				<tr>
+					<th>Poduct</th>
+					<th>Quantity</th>
+					<th>Subtotal</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<div class="cart-info">
+							<img src="img/buy-1.jpg">
+							<div>
+								<p>Red Printed T-Shirt</p>
+								<small>$50.00</small>
+								<a href="">Remove</a>
+							</div>
+						</div>
+					</td>
+					<td>
+						<input type="number" name="qty" value="1" min="1">
+					</td>
+					<td>SubPrice</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="cart-info">
+							<img src="img/buy-2.jpg">
+							<div>
+								<p>Red Printed T-Shirt</p>
+								<small>$50.00</small>
+								<a href="">Remove</a>
+							</div>
+						</div>
+					</td>
+					<td>
+						<input type="number" name="qty" value="1" min="1">
+					</td>
+					<td>SubPrice</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="cart-info">
+							<img src="img/buy-3.jpg">
+							<div>
+								<p>Red Printed T-Shirt</p>
+								<small>$50.00</small>
+								<a href="">Remove</a>
+							</div>
+						</div>
+					</td>
+					<td>
+						<input type="number" name="qty" value="1" min="1">
+					</td>
+					<td>SubPrice</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="total-price">
+			<table>
+				<tr>
+					<td>Subtotal</td>
+					<td>$xxx.zz</td>
+				</tr>
+				<tr>
+					<td>Tax</td>
+					<td>$xx.zz</td>
+				</tr>
+				<tr>
+					<td>Total</td>
+					<td>$xxx.zz</td>
+				</tr>
+			</table>
+		</div>
+
+	</section>
+
+	<!--------------- FOOTER SECTION --------------->
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="footer-col-1">
+					<h3>Download Our App</h3>
+					<p>Download App for Android and iOS</p>
+					<div class="app-logo">
+						<img src="img/play-store.png">
+						<img src="img/app-store.png">
+					</div>
+				</div>
+				<div class="footer-col-2">
+					<img src="img/rokunensa_w.png">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+				</div>
+				<div class="footer-col-3">
+					<h3>Usefull Links</h3>
+					<ul>
+						<li>Coupons</li>
+						<li>Blog Post</li>
+						<li>Return Policy</li>
+						<li>Join Affiliate</li>
+					</ul>
+				</div>
+				<div class="footer-col-4">
+					<h3>Follow Us</h3>
+					<ul>
+						<li>Facebook</li>
+						<li>Instagram</li>
+						<li>Twitter</li>
+						<li>Youtube</li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<p class="copyright">Copyright 2021</p>
+		</div>
+	</footer>
+
+	<!--------------- JAVASCRIPT IMPORT --------------->
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
