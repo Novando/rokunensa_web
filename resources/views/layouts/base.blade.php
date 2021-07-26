@@ -15,20 +15,36 @@
 	<div class="responsive-bar">
 		<div class="extra-menu">
 			<span class="material-icons menu" onclick="menuToggle()">&#xe5d2;</span>
-			<span class="material-icons menu">&#xe8cc;</span>
+			<a href="/shop"><span class="material-icons menu">&#xe8cc;</span></a>
 		</div>
 	</div>
 	<nav>
 		<div class="logo">
-			<img src="img/rokunensa_b.png">
+			<a href="/"><img src="{{asset('img/rokunensa_b.png')}}"></a>
 		</div>
 		<ul id="MenuItems">
-			<li><a href="" class="active">Home</a></li>
-			<li><a href="">Product</a></li>
-			<li><a href="">Contact</a></li>
-			<li><a href="">Blog</a></li>
-			<li><a href="">Account</a></li>
-			<li><span class="material-icons">&#xe8cc;</span></li>
+			<li><a href="/" class="menu-list active">Home</a></li>
+			<li><a href="/shop" class="menu-list">Shop</a></li>
+			<li><a href="" class="menu-list">Contact</a></li>
+			<li><a href="" class="menu-list">Blog</a></li>
+			@if(Route::has('login'))
+				@auth
+					@if(Auth::user()->utype === 'ADM')
+						<li><a href="{{route('admin.dashboard')}}" class="menu-list">Dashboard</a></li>
+						<li><a href="{{route('logout')}}" onclick="logout()">Logout</a></li>
+						<form id="logout-form" method="POST" action="{{route('logout')}}">@csrf</form>
+						<li><p>Hi, {{Auth::user()->name}}</p></li>
+					@else
+						<li><a href="{{route('user.dashboard')}}" class="menu-list">Dashboard</a></li>
+						<li><a href="{{route('logout')}}" onclick="logout()">Logout</a></li>
+						<form id="logout-form" method="POST" action="{{route('logout')}}">@csrf</form>
+						<li><p>Hi, {{Auth::user()->name}}</p></li>
+					@endif
+				@else
+					<li><a href="{{route('login')}}" class="menu-list">Account</a></li>
+				@endif
+			@endif
+			<li><a href="/cart"><span class="material-icons">&#xe8cc;</span></a></li>
 		</ul>
 	</nav>
 

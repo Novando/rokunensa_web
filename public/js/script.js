@@ -2,7 +2,7 @@
 function menuToggle() {
 	var MenuItems = document.getElementById('MenuItems');
 	if (MenuItems.style.maxHeight <= "1px") {
-		MenuItems.style.maxHeight = "200px";
+		MenuItems.style.maxHeight = "400px";
 	} else {
 		MenuItems.style.maxHeight = "0px";
 	}
@@ -50,4 +50,9 @@ function login() {
 	RegisterForm.style.transform = 'translateX(0px)';
 	LoginForm.style.transform = 'translateX(0px)';
 	Indicator.style.transform = 'translateX(100px)';
+}
+
+function logout() {
+	event.preventDefault();
+	document.getElementById('logout-form').submit();
 }
