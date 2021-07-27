@@ -6,6 +6,10 @@
 	color: #ff523b;
 }
 
+.material-icons.rating:hover{
+	cursor: default;
+}
+
 .material-icons.sizebig{
 	font-size: 48px;
 }

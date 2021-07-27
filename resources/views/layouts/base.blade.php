@@ -20,7 +20,7 @@
 	</div>
 	<nav>
 		<div class="logo">
-			<a href="/"><img src="{{asset('img/rokunensa_b.png')}}"></a>
+			<a href="/"><img src="{{asset('img/logos/rokunensa_b.png')}}"></a>
 		</div>
 		<ul id="MenuItems">
 			<li><a href="/" class="menu-list active">Home</a></li>
@@ -33,12 +33,12 @@
 						<li><a href="{{route('admin.dashboard')}}" class="menu-list">Dashboard</a></li>
 						<li><a href="{{route('logout')}}" onclick="logout()">Logout</a></li>
 						<form id="logout-form" method="POST" action="{{route('logout')}}">@csrf</form>
-						<li><p>Hi, {{Auth::user()->name}}</p></li>
+						<li><p>Hi, {{Auth::user()->username}}</p></li>
 					@else
 						<li><a href="{{route('user.dashboard')}}" class="menu-list">Dashboard</a></li>
 						<li><a href="{{route('logout')}}" onclick="logout()">Logout</a></li>
 						<form id="logout-form" method="POST" action="{{route('logout')}}">@csrf</form>
-						<li><p>Hi, {{Auth::user()->name}}</p></li>
+						<li><p>Hi, {{Auth::user()->username}}</p></li>
 					@endif
 				@else
 					<li><a href="{{route('login')}}" class="menu-list">Account</a></li>
@@ -54,7 +54,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="footer-col">
-					<img src="{{ asset('img/rokunensa_w.png')}}">
+					<img src="{{ asset('img/logos/rokunensa_w.png')}}">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
 					<div class="social">
 						<ul>

@@ -9,162 +9,24 @@
         </select>
     </div>
     <div class="row">
-        <div class="col-4">
-            <img src="img/product-1.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
-        <div class="col-4">
-            <img src="img/product-2.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
-        <div class="col-4">
-            <img src="img/product-3.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
-        <div class="col-4">
-            <img src="img/product-4.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
+        @foreach ($products as $product)
+            <div class="col-4">
+                <a href="" title="{{$product->name}}">
+                    <img src="{{'img/products/' . $product->image}}" alt="{{$product->name}}">
+                </a>
+                <h4>{{$product->name}}</h4>
+                <p>{{$product->sale_price}}</p>
+                <span class="material-icons rating">
+                    &#xe838;
+                    &#xe838;
+                    &#xe838;
+                    &#xe839;
+                    &#xe83a;
+                </span>
+            </div>
+        @endforeach
     </div>
     <div class="row">
-        <div class="col-4">
-            <img src="img/product-1.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
-        <div class="col-4">
-            <img src="img/product-2.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
-        <div class="col-4">
-            <img src="img/product-3.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
-        <div class="col-4">
-            <img src="img/product-4.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4">
-            <img src="img/product-1.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
-        <div class="col-4">
-            <img src="img/product-2.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
-        <div class="col-4">
-            <img src="img/product-3.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
-        <div class="col-4">
-            <img src="img/product-4.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-3 page-btn">
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>&#8594</span>
-        </div>
+        {{$products->onEachSide(0)->links('pagination-link')}}
     </div>
 </section>

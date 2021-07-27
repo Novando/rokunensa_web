@@ -171,7 +171,7 @@ header{
 .col-4{
 	flex-basis: 25%;
 	padding: 10px;
-	min-width: 200px;
+	min-width: 160px;
 	margin-bottom: 50px;
 	transition: 0.5s;
 }
@@ -363,15 +363,24 @@ footer hr{
 }
 
 #products .page-btn span{
+	font-size: 14px;
 	display: inline-block;
 	border: 1px solid #ff523b;
 	margin-left: 10px;
-	width: 40px;
-	height: 40px;
+	width: 25px;
+	height: 25px;
 	text-align: center;
-	line-height: 40px;
+	line-height: 25px;
 	cursor: pointer;
 	transition: 0.5s;
+}
+
+#products .page-btn .off{
+	background: #999 !important;
+	border: 1px solid #333 !important;
+	color: #333 !important;
+	border-radius: 0 !important;
+	cursor: default !important;
 }
 
 #products .page-btn span:hover{
@@ -514,7 +523,7 @@ footer hr{
 .form-container{
 	background: #fff;
 	width: 300px;
-	height: 400px;
+	height: 450px;
 	position: relative;
 	text-align: center;
 	padding: 20px 0;
@@ -544,12 +553,36 @@ footer hr{
 	transition: 1s;
 }
 
-#account input{
+#account .mb-4{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 12px;
+	color: #000;
+	animation: warning 5s;
+}
+
+@keyframes warning{
+	from{
+		background: rgba(255,82,59, 1.0);
+		color: #fff;
+	} to {
+		background: rgba(255,82,59, 0);
+		color: #000;
+	}
+}
+
+#account .credential{
 	width: 100%;
 	height: 30px;
 	margin: 10px 0;
 	padding: 0 10px;
+	border-radius: 10px;
 	border: 1px solid #ccc;
+}
+
+#account .credential:focus{
+	outline: none;
+	border: 2px solid #000;
 }
 
 #account .btn{
@@ -652,8 +685,12 @@ footer hr{
 		text-align: center;
 	}
 
-	.col-2, .col-3, .col-4, .col-5{
+	.col-2, .col-3{
 		flex-basis: 100%;
+	}
+
+	.col-4{
+		flex-basis: 50%;
 	}
 
 	#product-detail .row{
@@ -671,5 +708,11 @@ footer hr{
 
 	.cart-info p{
 		display: none;
+	}
+}
+
+@media only screen and (max-width: 380px){
+	.col-4{
+		flex-basis: 100%;
 	}
 }
