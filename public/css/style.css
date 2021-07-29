@@ -33,7 +33,7 @@ nav{
 	padding: 20px 40px;
 	box-sizing: border-box;
 	transition: 0.5s;
-	z-index: 99;
+	z-index: 98;
 }
 
 .nav-scrolled{
@@ -394,6 +394,31 @@ footer hr{
 	margin-top: 80px;
 }
 
+#product-detail .alert{
+	display: inline-block;
+	top: 0;
+	left: 50%;
+	padding: 5px 20px;
+	font-size: 14px;
+	font-weight: 300;
+	box-sizing: border-box;
+	border-radius: 15px;
+	z-index: 100;
+	background: rgba(35, 197, 82, 0);
+	color: rgba(255, 255, 255, 0);
+	animation: gone-green 6s;
+}
+
+@keyframes gone-green{
+	from{
+		background: rgba(35, 197, 82, 1);
+		color: rgba(255, 255, 255, 1);
+	} to {
+		background: rgba(35, 197, 82, 0);
+		color: rgba(255, 255, 255, 0);
+	}
+}
+
 #product-detail .col-2 img{
 	padding: 0;
 }
@@ -457,6 +482,34 @@ footer hr{
 	margin: 80px auto;
 }
 
+#cart .alert{
+	display: block;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 5px 20px;
+	font-size: 14px;
+	font-weight: 300;
+	box-sizing: border-box;
+	width: 80%;
+	border-radius: 0 0 15px 15px;
+	z-index: 100;
+	position: fixed;
+	background: rgba(248, 79, 49, 0);
+	color: rgba(255, 255, 255, 0);
+	animation: gone 6s;
+}
+
+@keyframes gone{
+	from{
+		background: rgba(248, 79, 49, 1);
+		color: rgba(255, 255, 255, 1);
+	} to {
+		background: rgba(248, 79, 49, 0);
+		color: rgba(255, 255, 255, 0);
+	}
+}
+
 #cart .page-title{
 	padding-bottom: 20px;
 }
@@ -488,9 +541,35 @@ footer hr{
 	padding: 5px;
 }
 
-#cart td a{
+#cart td .remove{
 	color: #ff523b;
 	font-size: 12px;
+}
+
+#cart .qty a{
+	display: inline-block;
+	text-align: center;
+	width: 40px;
+	height: 40px;
+	line-height: 35px;
+	align-items: center;
+	font-size: 24px;
+	border-radius: 50%;
+	border: 1px solid #ff523b;
+	transition: 0.3s;
+}
+
+#cart .qty a:hover{
+	background-color: #ff523b;
+	color: #fff;
+}
+
+#cart .qty .plus{
+	margin-left: 10px;
+}
+
+#cart .qty .min{
+	margin-right: 10px;
 }
 
 #cart td img{
@@ -629,7 +708,7 @@ footer hr{
 		left: 0;
 		padding: 5px 20px;
 		box-sizing: border-box;
-		z-index: 100;
+		z-index: 99;
 	}
 
 	.responsive-bar .extra-menu span{
@@ -708,6 +787,23 @@ footer hr{
 
 	.cart-info p{
 		display: none;
+	}
+}
+
+@media only screen and (max-width: 480px){
+	#cart .qty a{
+		width: 20px;
+		height: 20px;
+		line-height: 16px;
+		font-size: 16px;
+	}
+
+	#cart .qty .plus{
+		margin-left: 5px;
+	}
+
+	#cart .qty .min{
+		margin-right: 5px;
 	}
 }
 

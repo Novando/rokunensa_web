@@ -11,11 +11,16 @@
     <div class="row">
         @foreach ($products as $product)
             <div class="col-4">
-                <a href="" title="{{$product->name}}">
-                    <img src="{{'img/products/' . $product->image}}" alt="{{$product->name}}">
+                <a href="{{route('products.details', ['slug'=>$product->link])}}" title="{{$product->name}}">
+                    <img src="{{asset('img/products')}}/{{$product->image}}" alt="{{$product->name}}">
                 </a>
                 <h4>{{$product->name}}</h4>
-                <p>{{$product->sale_price}}</p>
+                <p>
+                    @if($product->sale_price < $product->base_price)
+                        <small><del>${{$product->base_price}}</del></small>
+                    @endif
+                    ${{$product->sale_price}}
+                </p>
                 <span class="material-icons rating">
                     &#xe838;
                     &#xe838;
