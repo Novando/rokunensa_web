@@ -1,11 +1,15 @@
 <section id="products" class="small-container">
     <div class="row row-2">
         <h2>All Product</h2>
-        <select>
-            <option disabled selected>Sort by</option>
-            <option>Short by Price</option>
-            <option>Short by Rating</option>
-            <option>Short by Sale</option>
+        <select wire:model="by">
+            <option value="created_at">Sort by Date</option>
+            <option value="sale_price">Short by Price</option>
+            <option value="rating">Short by Rating</option>
+            <option value="sold">Short by Sale</option>
+        </select>
+        <select wire:model="sorting">
+            <option value="DESC">Descending &#8595;</option>
+            <option value="ASC">Ascending &#8593;</option>
         </select>
     </div>
     <div class="row">

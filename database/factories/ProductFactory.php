@@ -23,7 +23,7 @@ class ProductFactory extends Factory
     public function definition()
     {
         $product_name = $this->faker->unique()->words($nb=4, $asText=true);
-        $sku = 'TEST' . $this->faker->unique()->numberBetween(100, 500);
+        $sku = 'TEST' . $this->faker->unique()->numberBetween(1, 20);
         $slug = Str::slug($sku . $product_name);
         return [
             'name' => $product_name,

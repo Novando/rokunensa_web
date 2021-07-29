@@ -42,55 +42,27 @@
     <!--------------- FEATURED SECTION --------------->
     <h2 class="title">Featured Product</h2>
     <div class="row">
-        <div class="col-4">
-            <img src="img/product-1.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
-        <div class="col-4">
-            <img src="img/product-2.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
-        <div class="col-4">
-            <img src="img/product-3.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
-        <div class="col-4">
-            <img src="img/product-4.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <p>$50.00</p>
-            <span class="material-icons rating">
-                &#xe838;
-                &#xe838;
-                &#xe838;
-                &#xe839;
-                &#xe83a;
-            </span>
-        </div>
-    </div>
+        @foreach($related as $rel_prod)
+            <div class="col-4">
+                <a href="{{route('products.details', ['slug'=>$rel_prod->link])}}" title="{{$rel_prod->name}}">
+                    <img src="{{asset ('img/products')}}/{{$rel_prod->image}}" alt="{{$rel_prod->name}}">
+                </a>
+                <h4>{{$rel_prod->name}}</h4>
+                <p>
+                    @if($rel_prod->sale_price < $rel_prod->base_price)
+                        <small><del>${{$rel_prod->base_price}}</del></small>
+                    @endif
+                    ${{$rel_prod->sale_price}}
+                </p>
+                <span class="material-icons rating">
+                    &#xe838;
+                    &#xe838;
+                    &#xe838;
+                    &#xe839;
+                    &#xe83a;
+                </span>
+            </div>
+        @endforeach
 
     <!--------------- LATEST SECTION --------------->
     <h2 class="title">Latest Product</h2>
