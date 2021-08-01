@@ -40,6 +40,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 });
 
 //FOR ADMINISTRATOR
-Route::middleware(['auth:sanctum', 'verified', 'auth.admin'])->group(function(){
+Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 	Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
 });
