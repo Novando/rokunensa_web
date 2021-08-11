@@ -36,19 +36,11 @@ class PruneCommand extends Command
      */
     public function handle(Dispatcher $events)
     {
-        $models = $this->models();
-
-        if ($models->isEmpty()) {
-            $this->info('No prunable models found.');
-
-            return;
-        }
-
         $events->listen(ModelsPruned::class, function ($event) {
             $this->info("{$event->count} [{$event->model}] records have been pruned.");
         });
 
-        $models->each(function ($model) {
+        $this->models()->each(function ($model) {
             $instance = new $model;
 
             $chunkSize = property_exists($instance, 'prunableChunkSize')
@@ -70,7 +62,7 @@ class PruneCommand extends Command
     /**
      * Determine the models that should be pruned.
      *
-     * @return \Illuminate\Support\Collection
+     * @return array
      */
     protected function models()
     {

@@ -3,9 +3,9 @@
 namespace Laravel\Jetstream\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\UserDetail;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\UserDetail;
 
 class NavigationMenu extends Component
 {
@@ -25,11 +25,20 @@ class NavigationMenu extends Component
      */
     public function render()
     {
-        $account = User::where('username', Auth::user()->username)->first();
-        $detail = UserDetail::where('username', Auth::user()->username)->first();
+        $user = UserDetail::where('username', Auth::user()->username)->first()->username;
+        $status = User::where('username', Auth::user()->username)->first()->utype;
+        switch ($status) {
+            case 'ADM':
+                $rank = 'Administrator';
+                break;
+            
+            default:
+                $rank = 'Undefined';
+                break;
+        }
         return view('navigation-menu', [
-            'account' => $account,
-            'detail' => $detail
+            'user' => $user,
+            'rank' => $rank
         ]);
     }
 }

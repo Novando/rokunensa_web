@@ -1,86 +1,179 @@
-<nav>
-    <ul>
-        <li>
-            <a href="#">
-                <span class="icon"></span>
-                <span class="title"><h2>Brand Name</h2></span>
-            </a>
-        </li>
-        <li>
-            <b class="roundout active"></b>
-            <b class="roundout active"></b>
-            <a href="#" class="active">
-                <span class="icon"><i class="fas fa-tv"></i></span>
-                <span class="title">Dashboard</span>
-            </a>
-        </li>
-        <li>
-            <b class="roundout"></b>
-            <b class="roundout"></b>
-            <a href="#">
-                <span class="icon"><i class="fas fa-envelope"></i></span>
-                <span class="title">Message</span>
-            </a>
-        </li>
-        <li>
-            <b class="roundout"></b>
-            <b class="roundout"></b>
-            <a href="#">
-                <span class="icon"><i class="fas fa-cubes"></i></span>
-                <span class="title">Order</span>
-            </a>
-        </li>
-        <li>
-            <b class="roundout"></b>
-            <b class="roundout"></b>
-            <a href="#">
-                <span class="icon"><i class="fas fa-users"></i></span>
-                <span class="title">Users</span>
-            </a>
-        </li>
-        <li>
-            <b class="roundout"></b>
-            <b class="roundout"></b>
-            <a href="#">
-                <span class="icon"><i class="fas fa-chart-pie"></i></span>
-                <span class="title">Statistic</span>
-            </a>
-        </li>
-        <li>
-            <b class="roundout"></b>
-            <b class="roundout"></b>
-            <a href="#">
-                <span class="icon"><i class="fas fa-cog"></i></span>
-                <span class="title">Settings</span>
-            </a>
-        </li>
-        <li>
-            <b class="roundout"></b>
-            <b class="roundout"></b>
-            <a href="#">
-                <span class="icon"><i class="fas fa-door-closed"></i></span>
-                <span class="title">Sign Out</span>
-            </a>
-        </li>
-    </ul>
-    <div class="user">
-        <div class="profile">
-            <div class="details">
-                <img src="img/tes.jpg">
-                <div class="credential">
-                    <div class="name">{{$detail->username}}</div>
-                    <div class="job">
-                        @switch($account->utype)
-                            @case('ADM')
-                                Administrator
-                                @break
-                            @case('SUR')
-                                Super User
-                                @break
-                        @endswitch
-                    </div>
-                </div>
-            </div>
+{{-- Navbar --}}
+<nav class="main-header navbar navbar-expand navbar-dark">
+{{-- Left navbar links --}}
+<ul class="navbar-nav">
+  <li class="nav-item">
+    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+  </li>
+  <li class="nav-item d-none d-sm-inline-block">
+    <a href="index3.html" class="nav-link">Home</a>
+  </li>
+  <li class="nav-item d-none d-sm-inline-block">
+    <a href="#" class="nav-link">Contact</a>
+  </li>
+</ul>
+
+{{-- Right navbar links --}}
+<ul class="navbar-nav ml-auto">
+  {{-- Navbar Search --}}
+  <li class="nav-item">
+    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+      <i class="fas fa-search"></i>
+    </a>
+    <div class="navbar-search-block">
+      <form class="form-inline">
+        <div class="input-group input-group-sm">
+          <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-navbar" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+            <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
         </div>
+      </form>
     </div>
+  </li>
+
+  {{-- Messages Dropdown Menu --}}
+  <li class="nav-item dropdown">
+    <a class="nav-link" data-toggle="dropdown" href="#">
+      <i class="far fa-comments"></i>
+      <span class="badge badge-danger navbar-badge">3</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+      <a href="#" class="dropdown-item">
+        {{-- Message Start --}}
+        <div class="media">
+          <img src="{{asset('admin/dist/img/user1-128x128.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+          <div class="media-body">
+            <h3 class="dropdown-item-title">
+              Brad Diesel
+              <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+            </h3>
+            <p class="text-sm">Call me whenever you can...</p>
+            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+          </div>
+        </div>
+        {{-- Message End --}}
+      </a>
+      <div class="dropdown-divider"></div>
+      <a href="#" class="dropdown-item">
+        {{-- Message Start --}}
+        <div class="media">
+          <img src="{{asset('admin/dist/img/user8-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+          <div class="media-body">
+            <h3 class="dropdown-item-title">
+              John Pierce
+              <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+            </h3>
+            <p class="text-sm">I got your message bro</p>
+            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+          </div>
+        </div>
+        {{-- Message End --}}
+      </a>
+      <div class="dropdown-divider"></div>
+      <a href="#" class="dropdown-item">
+        {{-- Message Start --}}
+        <div class="media">
+          <img src="{{asset('admin/dist/img/user3-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+          <div class="media-body">
+            <h3 class="dropdown-item-title">
+              Nora Silvester
+              <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+            </h3>
+            <p class="text-sm">The subject goes here</p>
+            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+          </div>
+        </div>
+        {{-- Message End --}}
+      </a>
+      <div class="dropdown-divider"></div>
+      <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+    </div>
+  </li>
+  {{-- Notifications Dropdown Menu --}}
+  <li class="nav-item dropdown">
+    <a class="nav-link" data-toggle="dropdown" href="#">
+      <i class="far fa-bell"></i>
+      <span class="badge badge-warning navbar-badge">15</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+      <span class="dropdown-item dropdown-header">15 Notifications</span>
+      <div class="dropdown-divider"></div>
+      <a href="#" class="dropdown-item">
+        <i class="fas fa-envelope mr-2"></i> 4 new messages
+        <span class="float-right text-muted text-sm">3 mins</span>
+      </a>
+      <div class="dropdown-divider"></div>
+      <a href="#" class="dropdown-item">
+        <i class="fas fa-users mr-2"></i> 8 friend requests
+        <span class="float-right text-muted text-sm">12 hours</span>
+      </a>
+      <div class="dropdown-divider"></div>
+      <a href="#" class="dropdown-item">
+        <i class="fas fa-file mr-2"></i> 3 new reports
+        <span class="float-right text-muted text-sm">2 days</span>
+      </a>
+      <div class="dropdown-divider"></div>
+      <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+      <i class="fas fa-expand-arrows-alt"></i>
+    </a>
+  </li>
+</ul>
 </nav>
+{{-- /Navbar --}}
+
+  {{-- Main Sidebar Container --}}
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    {{-- Brand Logo --}}
+    <a href="/" class="brand-link">
+      <img src="{{asset('admin/dist/img/AdminLTELogo')}}.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
+
+    {{-- Sidebar --}}
+    <div class="sidebar">
+      {{-- Sidebar user panel (optional) --}}
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">{{$user}}-{{$rank}}</a>
+        </div>
+      </div>
+
+      {{-- Sidebar Menu --}}
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          {{-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library --}}
+          <li class="nav-item">
+            <a href="{{route('admin.dashboard')}}" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('admin.product')}}" class="nav-link">
+              <i class="nav-icon fas fa-archive"></i>
+              <p>
+                Product
+              </p>
+            </a>
+          </li>
+      </nav>
+      {{-- /.sidebar-menu --}}
+    </div>
+    {{-- /.sidebar --}}
+  </aside>

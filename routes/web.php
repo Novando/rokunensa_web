@@ -7,6 +7,9 @@ use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
+use App\Http\Livewire\Admin\AdminProductComponent;
+use App\Http\Livewire\Admin\AdminAddProductComponent;
+use App\Http\Livewire\Admin\AdminRestockProductComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +43,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 });
 
 //FOR ADMINISTRATOR
-Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+Route::middleware(['auth:sanctum', 'verified', 'auth.admin'])->group(function(){
 	Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
+	Route::get('/admin/product', AdminProductComponent::class)->name('admin.product');
+	Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.addproduct');
+	Route::get('/admin/product/restock/{slug}', AdminRestockProductComponent::class)->name('admin.restock');
 });

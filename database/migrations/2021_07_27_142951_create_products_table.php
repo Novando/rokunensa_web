@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->char('SKU', 8)->unique();
             $table->string('link')->unique();
             $table->text('desc');
-            $table->decimal('prod_cost');
+            $table->decimal('prod_cost')->default(0);
             $table->decimal('base_price');
             $table->decimal('sale_price');
             $table->decimal('rating')->default(0);

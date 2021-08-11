@@ -7,7 +7,6 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\Cookie\CookieValuePrefix;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
@@ -81,10 +80,13 @@ class TestResponse implements ArrayAccess
      */
     public function assertSuccessful()
     {
-        PHPUnit::assertTrue(
-            $this->isSuccessful(),
-            $this->statusMessageWithDetails('>=200, <300', $this->getStatusCode())
-        );
+        $lastException = $this->exceptions->last();
+
+        $message = isset($lastException)
+                    ? $this->statusMessageWithException('>=200, <300', $this->getStatusCode(), $lastException)
+                    : 'Response status code ['.$this->getStatusCode().'] is not a successful status code.';
+
+        PHPUnit::assertTrue($this->isSuccessful(), $message);
 
         return $this;
     }
@@ -162,45 +164,19 @@ class TestResponse implements ArrayAccess
      */
     public function assertStatus($status)
     {
-        $message = $this->statusMessageWithDetails($status, $actual = $this->getStatusCode());
+        $actual = $this->getStatusCode();
+
+        $lastException = $actual !== $status && in_array($actual, [422, 500])
+                    ? $this->exceptions->last()
+                    : null;
+
+        $message = isset($lastException)
+                    ? $this->statusMessageWithException($status, $actual, $lastException)
+                    : "Expected status code [{$status}] but received {$actual}.";
 
         PHPUnit::assertSame($actual, $status, $message);
 
         return $this;
-    }
-
-    /**
-     * Get an assertion message for a status assertion containing extra details when available.
-     *
-     * @param  string|int  $expected
-     * @param  string|int  $actual
-     * @return string
-     */
-    protected function statusMessageWithDetails($expected, $actual)
-    {
-        $lastException = $this->exceptions->last();
-
-        if ($lastException) {
-            return $this->statusMessageWithException($expected, $actual, $lastException);
-        }
-
-        if ($this->baseResponse instanceof RedirectResponse) {
-            $session = $this->baseResponse->getSession();
-
-            if (! is_null($session) && $session->has('errors')) {
-                return $this->statusMessageWithErrors($expected, $actual, $session->get('errors')->all());
-            }
-        }
-
-        if ($this->baseResponse->headers->get('Content-Type') === 'application/json') {
-            $json = $this->json();
-
-            if (isset($json['errors'])) {
-                return $this->statusMessageWithErrors($expected, $actual, $json);
-            }
-        }
-
-        return "Expected response status code [{$expected}] but received {$actual}.";
     }
 
     /**
@@ -229,26 +205,25 @@ EOF;
     }
 
     /**
-     * Get an assertion message for a status assertion that contained errors.
+     * Get an assertion message for a status assertion that has an unexpected validation exception.
      *
      * @param  string|int  $expected
      * @param  string|int  $actual
-     * @param  array $errors;
+     * @param  \Illuminate\Validation\ValidationException $exception;
      * @return string
      */
-    protected function statusMessageWithErrors($expected, $actual, $errors)
+    protected function statusMessageWithValidationErrors($expected, $actual, $exception)
     {
         $errors = $this->baseResponse->headers->get('Content-Type') === 'application/json'
-            ? json_encode($errors, JSON_PRETTY_PRINT)
-            : implode(PHP_EOL, Arr::flatten($errors));
+            ? json_encode($exception->errors(), JSON_PRETTY_PRINT)
+            : implode(PHP_EOL, Arr::flatten($exception->errors()));
 
         return <<<EOF
 Expected response status code [$expected] but received $actual.
 
-The following errors occurred during the request:
+The following validation errors occurred during the request:
 
 $errors
-
 EOF;
     }
 
