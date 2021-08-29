@@ -6,6 +6,7 @@ use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\User\UserDetailsComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminProductComponent;
 use App\Http\Livewire\Admin\AdminAddProductComponent;
@@ -29,7 +30,7 @@ Route::get('/shop', ShopComponent::class);
 
 Route::get('/cart', CartComponent::class)->name('product.cart');
 
-Route::get('/checkout', CheckoutComponent::class);
+Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 
 Route::get('/product/{slug}', DetailsComponent::class)->name('products.details');
 
@@ -39,7 +40,8 @@ Route::get('/product/{slug}', DetailsComponent::class)->name('products.details')
 
 // FOR NORMAL USER
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
-	Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
+	Route::get('/user/profile', UserDetailsComponent::class)->name('user.details');
+	Route::get('/user/orders', UserDashboardComponent::class)->name('user.order');
 });
 
 //FOR ADMINISTRATOR

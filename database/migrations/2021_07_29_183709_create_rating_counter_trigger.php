@@ -19,7 +19,7 @@ class CreateRatingCounterTrigger extends Migration
             AFTER INSERT
             ON ratings FOR EACH ROW
             BEGIN
-                CALL CountRatings(NEW.SKU);
+                CALL CountRatings(NEW.product_id);
             END;
         ');
 
@@ -28,7 +28,7 @@ class CreateRatingCounterTrigger extends Migration
             AFTER UPDATE
             ON ratings FOR EACH ROW
             BEGIN
-                CALL CountRatings(OLD.SKU);
+                CALL CountRatings(OLD.product_id);
             END;
         ');
 
@@ -37,7 +37,7 @@ class CreateRatingCounterTrigger extends Migration
             AFTER DELETE
             ON ratings FOR EACH ROW
             BEGIN
-                CALL CountRatings(OLD.SKU);
+                CALL CountRatings(OLD.product_id);
             END;
         ');
     }

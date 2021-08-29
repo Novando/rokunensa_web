@@ -11,7 +11,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Poduct</th>
+                        <th>Product</th>
                         <th>Quantity</th>
                         <th>Subtotal</th>
                     </tr>
@@ -22,7 +22,7 @@
                         <td>
                             <div class="cart-info">
                                 <a href="{{route('products.details', $item->model->link)}}">
-                                    <img src="{{asset('img/buy-1.jpg')}}">
+                                    <img src="{{asset('img/products')}}/{{$item->model->image}}">
                                 </a>
                                 <div>
                                      <a href="{{route('products.details', $item->model->link)}}">
@@ -57,10 +57,16 @@
                         <td>Total</td>
                         <td>${{Cart::total()}}</td>
                     </tr>
+                    <tr>
+                        <td><a href="" class="btn" wire:click.prevent='setAmount'>Check Out</a></td>
+                    </tr>
                 </table>
             </div>
         @else
             &#160;is Empty</h3>
+            <div>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
         @endif
 
 </section>

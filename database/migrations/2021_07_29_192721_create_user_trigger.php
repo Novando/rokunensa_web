@@ -19,7 +19,7 @@ class CreateUserTrigger extends Migration
             AFTER INSERT
             ON users FOR EACH ROW
             BEGIN
-                INSERT INTO user_details(username) VALUES (NEW.username);
+                INSERT INTO user_details(user_id, created_at) VALUES (NEW.id, CURRENT_TIMESTAMP);
             END;
         ');
     }

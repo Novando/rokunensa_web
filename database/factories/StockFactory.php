@@ -22,9 +22,9 @@ class StockFactory extends Factory
      */
     public function definition()
     {
-        $sku = 'TEST' . $this->faker->numberBetween(1, 20);
+        $sku = $this->faker->numberBetween(1, 20);
         return [
-            'SKU' => $sku,
+            'product_id' => $sku,
             'size' => $this->faker->randomElement(['XXL', 'XL', 'L', 'M', 'S']),
             'sold' => $this->faker->numberBetween(0, 12)
         ];

@@ -54,7 +54,6 @@ final class Versions
   'guzzlehttp/promises' => '1.4.1@8e7d04f1f6450fef59366c399cfad4b9383aa30d',
   'guzzlehttp/psr7' => '2.0.0@1dc8d9cba3897165e16d12bb13d813afb1eb3fe7',
   'hardevine/shoppingcart' => '3.0@8dea942f3c61ed450fe7dfee968dc9943fa649f8',
-  'intervention/image' => '2.6.1@0925f10b259679b5d8ca58f3a2add9255ffcda45',
   'jaybizzle/crawler-detect' => 'v1.2.106@78bf6792cbf9c569dc0bf2465481978fd2ed0de9',
   'jenssegers/agent' => 'v2.6.4@daa11c43729510b3700bc34d414664966b03bffe',
   'laravel/fortify' => 'v1.7.14@3e187b3a440f6d41c3b4599ca5d6167a52289a4e',
@@ -75,6 +74,8 @@ final class Versions
   'nikic/php-parser' => 'v4.12.0@6608f01670c3cc5079e18c1dab1104e002579143',
   'opis/closure' => '3.6.2@06e2ebd25f2869e54a306dda991f7db58066f7f6',
   'paragonie/constant_time_encoding' => 'v2.4.0@f34c2b11eb9d2c9318e13540a1dbc2a3afbd939c',
+  'paypal/paypal-checkout-sdk' => '1.0.1@ed6a55075448308b87a8b59dcb7fedf04a048cb1',
+  'paypal/paypalhttp' => '1.0.0@1ad9b846a046f09d6135cbf2cbaa7701bbc630a3',
   'phpoption/phpoption' => '1.7.5@994ecccd8f3283ecf5ac33254543eb0ac946d525',
   'pragmarx/google2fa' => '8.0.0@26c4c5cf30a2844ba121760fd7301f8ad240100b',
   'psr/container' => '1.1.1@8622567409010282b7aeebe4bb841fe98b58dcaf',
@@ -160,7 +161,7 @@ final class Versions
   'sebastian/type' => '2.3.4@b8cd8a1c753c90bc1a0f5372170e3e489136f914',
   'sebastian/version' => '3.0.2@c6c1022351a901512170118436c764e473f6de8c',
   'theseer/tokenizer' => '1.2.0@75a63c33a8577608444246075ea0af0d052e452a',
-  'laravel/laravel' => 'dev-master@d74b2970a99a90268598090f5b38cbd1218dc278',
+  'laravel/laravel' => 'dev-master@708c4d3ba9c2a74b14b532334c2a64e1c7f0864a',
 );
 
     private function __construct()

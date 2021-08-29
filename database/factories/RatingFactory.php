@@ -21,10 +21,10 @@ class RatingFactory extends Factory
      */
     public function definition()
     {
-        $sku = 'TEST' . $this->faker->numberBetween(1, 20);
+        $sku = $this->faker->numberBetween(1, 20);
         return [
-            'SKU' => $sku,
-            'reviewer' => $this->faker->randomElement(['tempora', 'molestias', 'et', 'in', 'magni']),
+            'product_id' => $sku,
+            'user_id' => $this->faker->numberBetween(1, 5),
             'review' => $this->faker->unique()->words($nb=20, $asText=true),
             'score' => $this->faker->numberBetween(1, 5)
         ];

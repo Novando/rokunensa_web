@@ -65,13 +65,31 @@
                     @endif
                     ${{$rel_prod->sale_price}}
                 </p>
-                <span class="material-icons rating">
-                    &#xe838;
-                    &#xe838;
-                    &#xe838;
-                    &#xe839;
-                    &#xe83a;
-                </span>
+                {{-- <span class="material-icons rating">
+                    @if($rel_prod->rating > 4.5)
+                        &#xe838;&#xe838;&#xe838;&#xe838;&#xe838;
+                    @elseif($rel_prod->rating > 4)
+                        &#xe838;&#xe838;&#xe838;&#xe838;&#xe839;
+                    @elseif($rel_prod->rating > 3.5)
+                        &#xe838;&#xe838;&#xe838;&#xe838;&#xe83a;
+                    @elseif($rel_prod->rating > 3)
+                        &#xe838;&#xe838;&#xe838;&#xe839;&#xe83a;
+                    @elseif($rel_prod->rating > 2.5)
+                        &#xe838;&#xe838;&#xe838;&#xe83a;&#xe83a;
+                    @elseif($rel_prod->rating > 2)
+                        &#xe838;&#xe838;&#xe839;&#xe83a;&#xe83a;
+                    @elseif($rel_prod->rating > 1.5)
+                        &#xe838;&#xe838;&#xe83a;&#xe83a;&#xe83a;
+                    @elseif($rel_prod->rating > 1)
+                        &#xe838;&#xe839;&#xe83a;&#xe83a;&#xe83a;
+                    @elseif($rel_prod->rating > 0.5)
+                        &#xe838;&#xe83a;&#xe83a;&#xe83a;&#xe83a;
+                    @elseif($rel_prod->rating > 0)
+                        &#xe839;&#xe83a;&#xe83a;&#xe83a;&#xe83a;
+                    @else
+                        &#xe83a;&#xe83a;&#xe83a;&#xe83a;&#xe83a;    
+                    @endif
+                </span>({{App\Models\Rating::where('SKU', $rel_prod->SKU)->count()}}) --}}
             </div>
         @endforeach
     </div>

@@ -10,6 +10,12 @@ class DetailsComponent extends Component
 {
     public $slug;
     public $input_qty;
+    public $home_menu = '';
+    public $shop_menu = 'active';
+    public $contact_menu = '';
+    public $blog_menu = '';
+    public $profile_menu = '';
+    public $order_menu = '';
 
     public function mount($slug){
         $this->slug = $slug;
@@ -27,6 +33,13 @@ class DetailsComponent extends Component
         return view('livewire.details-component', [
             'product' => $product,
             'related' => $related
-        ])->layout('layouts.base');
+        ])->layout('layouts.base', [
+            'home_menu' => $this->home_menu,
+            'shop_menu' => $this->shop_menu,
+            'contact_menu' => $this->contact_menu,
+            'blog_menu' => $this->blog_menu,
+            'profile_menu' => $this->profile_menu,
+            'order_menu' => $this->order_menu,
+        ]);
     }
 }

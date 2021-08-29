@@ -19,7 +19,7 @@ class CreateStockCounterTrigger extends Migration
             AFTER INSERT
             ON stocks FOR EACH ROW
             BEGIN
-                CALL CountStocks(NEW.SKU);
+                CALL CountStocks(NEW.product_id);
             END;
         ');
 
@@ -28,7 +28,7 @@ class CreateStockCounterTrigger extends Migration
             AFTER UPDATE
             ON stocks FOR EACH ROW
             BEGIN
-                CALL CountStocks(OLD.SKU);
+                CALL CountStocks(OLD.product_id);
             END;
         ');
 
@@ -37,7 +37,7 @@ class CreateStockCounterTrigger extends Migration
             AFTER DELETE
             ON stocks FOR EACH ROW
             BEGIN
-                CALL CountStocks(OLD.SKU);
+                CALL CountStocks(OLD.product_id);
             END;
         ');
     }

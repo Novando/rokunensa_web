@@ -15,12 +15,12 @@ class CreateStocksTable extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
-            $table->char('SKU', 8);
+            $table->bigInteger('product_id')->unsigned();
             $table->enum('size', ['XXL', 'XL', 'L', 'M', 'S'])->default('M');
             $table->unsignedInteger('qty')->default(12);
             $table->unsignedInteger('sold')->default(0);
             $table->timestamps();
-            $table->foreign('SKU')->references('SKU')->on('products')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

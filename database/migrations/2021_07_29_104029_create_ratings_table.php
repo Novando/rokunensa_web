@@ -15,13 +15,13 @@ class CreateRatingsTable extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
-            $table->char('SKU', 8);
-            $table->string('reviewer');
+            $table->bigInteger('product_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->text('review')->nullable();
             $table->decimal('score')->default(5);
             $table->timestamps();
-            $table->foreign('SKU')->references('SKU')->on('products')->onDelete('cascade');
-            $table->foreign('reviewer')->references('username')->on('user_details');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('user_details');
         });
     }
 

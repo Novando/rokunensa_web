@@ -42,13 +42,31 @@
                     @endif
                     ${{$product->sale_price}}
                 </p>
-                <span class="material-icons rating">
-                    &#xe838;
-                    &#xe838;
-                    &#xe838;
-                    &#xe839;
-                    &#xe83a;
-                </span>
+                {{-- <span class="material-icons rating">
+                    @if($product->rating > 4.5)
+                        &#xe838;&#xe838;&#xe838;&#xe838;&#xe838;
+                    @elseif($product->rating > 4)
+                        &#xe838;&#xe838;&#xe838;&#xe838;&#xe839;
+                    @elseif($product->rating > 3.5)
+                        &#xe838;&#xe838;&#xe838;&#xe838;&#xe83a;
+                    @elseif($product->rating > 3)
+                        &#xe838;&#xe838;&#xe838;&#xe839;&#xe83a;
+                    @elseif($product->rating > 2.5)
+                        &#xe838;&#xe838;&#xe838;&#xe83a;&#xe83a;
+                    @elseif($product->rating > 2)
+                        &#xe838;&#xe838;&#xe839;&#xe83a;&#xe83a;
+                    @elseif($product->rating > 1.5)
+                        &#xe838;&#xe838;&#xe83a;&#xe83a;&#xe83a;
+                    @elseif($product->rating > 1)
+                        &#xe838;&#xe839;&#xe83a;&#xe83a;&#xe83a;
+                    @elseif($product->rating > 0.5)
+                        &#xe838;&#xe83a;&#xe83a;&#xe83a;&#xe83a;
+                    @elseif($product->rating > 0)
+                        &#xe839;&#xe83a;&#xe83a;&#xe83a;&#xe83a;
+                    @else
+                        &#xe83a;&#xe83a;&#xe83a;&#xe83a;&#xe83a;    
+                    @endif
+                </span>({{App\Models\Rating::where('SKU', $product->SKU)->count()}}) --}}
             </div>
         @endforeach
         @if (!isset($product))

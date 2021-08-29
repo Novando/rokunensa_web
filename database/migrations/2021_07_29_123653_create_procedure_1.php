@@ -15,20 +15,20 @@ class CreateProcedure1 extends Migration
     public function up()
     {
         DB::unprepared('
-            CREATE PROCEDURE CountStocks(code CHAR(8))
+            CREATE PROCEDURE CountStocks(code VARCHAR(255))
             BEGIN
                 DECLARE total_stock INT;
                 DECLARE total_sold INT;
 
-                SELECT SUM(stocks.qty) INTO total_stock FROM stocks WHERE stocks.SKU = code;
-                SELECT SUM(stocks.sold) INTO total_sold FROM stocks WHERE stocks.SKU = code;
+                SELECT SUM(stocks.qty) INTO total_stock FROM stocks WHERE stocks.product_id = code;
+                SELECT SUM(stocks.sold) INTO total_sold FROM stocks WHERE stocks.product_id = code;
 
                 UPDATE products
                 SET 
                     products.stock = total_stock,
                     products.sold = total_sold 
                 WHERE
-                    products.SKU = code;
+                    products.id = code;
             END;
         ');
     }

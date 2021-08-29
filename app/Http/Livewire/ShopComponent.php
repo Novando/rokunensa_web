@@ -14,6 +14,12 @@ class ShopComponent extends Component
     public $category;
     public $sorting;
     public $by;
+    public $home_menu = '';
+    public $shop_menu = 'active';
+    public $contact_menu = '';
+    public $blog_menu = '';
+    public $profile_menu = '';
+    public $order_menu = '';
 
     public function mount(){
         $this->search = '';
@@ -51,6 +57,13 @@ class ShopComponent extends Component
             ])->orderBy($by, $this->sorting)->paginate(12);
         }
         
-        return view('livewire.shop-component', ['products' => $products])->layout('layouts.base');
+        return view('livewire.shop-component', ['products' => $products])->layout('layouts.base', [
+            'home_menu' => $this->home_menu,
+            'shop_menu' => $this->shop_menu,
+            'contact_menu' => $this->contact_menu,
+            'blog_menu' => $this->blog_menu,
+            'profile_menu' => $this->profile_menu,
+            'order_menu' => $this->order_menu,
+        ]);
     }
 }
